@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Resume Builder</title>
+    <link rel="stylesheet" href="quick_resume.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="editor-section">
+            <h2>Resume Builder</h2>
+            <p>Fill in the details below. The preview updates automatically.</p>
+            
+            <div class="form-group">
+                <h3>Personal Info</h3>
+                <input type="text" id="nameInput" placeholder="Full Name" value="Om Thokane">
+                <input type="text" id="emailInput" placeholder="Email" value="omthokane.cs.sit@gmail.com">
+                <input type="text" id="linkedinInput" placeholder="LinkedIn URL">
+                <input type="text" id="leetcodeInput" placeholder="LeetCode URL">
+                <input type="text" id="githubInput" placeholder="GitHub URL">
+                <input type="text" id="portfolioInput" placeholder="Portfolio URL">
+            </div>
+
+            <div class="form-group">
+                <h3>Summary</h3>
+                <textarea id="summaryInput" rows="4" placeholder="Enter bullet points (one per line)">• Computer Engineering student (CGPA: 9.5/10)...
+• Skilled in C++, Java, Python...</textarea>
+            </div>
+
+            <div class="form-group">
+                <h3>Education</h3>
+                <div id="educationList">
+                    </div>
+                <button class="add-btn" onclick="addEducationField()">+ Add Education</button>
+            </div>
+
+            <div class="form-group">
+                <h3>Skills</h3>
+                <textarea id="skillsInput" rows="4" placeholder="Format: Category: Skill list">Programming Languages: C++, Java, Python
+Developer Tools: VS Code, Git</textarea>
+            </div>
+
+            <div class="form-group">
+                <h3>Projects</h3>
+                <div id="projectList">
+                    </div>
+                <button class="add-btn" onclick="addProjectField()">+ Add Project</button>
+            </div>
+
+            <div class="form-group">
+                <h3>Achievements</h3>
+                <textarea id="achievementsInput" rows="4" placeholder="One achievement per line"></textarea>
+            </div>
+
+            <div class="form-group">
+                <h3>Extra-Curriculars</h3>
+                <textarea id="extraInput" rows="4" placeholder="One activity per line"></textarea>
+            </div>
+
+            <div class="actions">
+                <button onclick="downloadPDF()" class="download-btn"><i class="fas fa-file-download"></i> Download PDF</button>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <div id="resume-preview" class="resume-paper">
+                
+                <div class="resume-header">
+                    <h1 id="res-name">Om Thokane</h1>
+                    <div class="contact-links" id="res-links">
+                        </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">SUMMARY</h2>
+                    <ul id="res-summary" class="bullet-list"></ul>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">EDUCATION</h2>
+                    <table class="edu-table">
+                        <tbody id="res-education">
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">SKILLS</h2>
+                    <ul id="res-skills" class="bullet-list"></ul>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">PROJECTS</h2>
+                    <div id="res-projects"></div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">ACHIEVEMENTS</h2>
+                    <ul id="res-achievements" class="bullet-list"></ul>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">EXTRA-CURRICULARS</h2>
+                    <ul id="res-extra" class="bullet-list"></ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="quick_resume.js"></script>
+</body>
+</html>
